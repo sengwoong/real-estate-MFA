@@ -7,7 +7,6 @@ type ButtonProps = React.PropsWithChildren<{
 
 const Button: React.FC<ButtonProps> = ({ children, onClick }) => (
   <button className={styles.btn} onClick={onClick}>
-    asdasd
     {children}
   </button>
 );
