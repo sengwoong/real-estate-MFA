@@ -1,5 +1,3 @@
-// career-up/packages/shell-router/src/hooks/use-app-event.ts
-
 import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 

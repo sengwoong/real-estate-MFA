@@ -1,4 +1,3 @@
-
 import { createBrowserRouter, createMemoryRouter } from "react-router-dom";
 import { type CreateRouterProps } from "./types";
 
