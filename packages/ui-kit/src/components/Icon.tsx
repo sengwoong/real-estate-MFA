@@ -11,7 +11,11 @@ import SlArrowDown from "./icons/SlArrowDown";
 import SlArrowLeftCircle from "./icons/SlArrowLeftCircle";
 import SlForder from "./icons/SlForder";
 import UserFriends from "./icons/UserFriends";
-
+import FaBuilding  from "./icons/FaBuilding";
+import FaHandshake  from "./icons/FaHandshake";
+import FaCheckCircle  from "./icons/FaCheckCircle";
+import FaPen from "./icons/FaPen";
+import Logo from "./icons/Logo";
 /**
  * 아이콘 모듈입니다. 다양한 아이콘을 제공합니다.
  */
@@ -37,7 +41,7 @@ const Icon = {
   HiBackspace,
 
   /**
-   * 홈 화면으로 이동하는 홈 아이콘입니다.
+   * 홈 페이지를 나타내는 아이콘입니다.
    */
   Home,
 
@@ -67,9 +71,31 @@ const Icon = {
   SlForder,
 
   /**
-   * 친구 목록 보기 또는 친구 추가를 나타내는 이모티콘입니다.
+   * 친구 목록 페이지를 나타내는 아이콘입니다.
    */
   UserFriends,
-};
+    /**
+   * 부동산 페이지를 나타내는 아이콘입니다.
+   */
+  FaBuilding,
+
+  /**
+   * 회의 페이지를 나타내는 아이콘입니다.
+   */
+  FaHandshake,
+
+  /**
+   * 결재 페이지를 나타내는 아이콘입니다.
+   */
+  FaCheckCircle,
+  /**
+   * 포스팅 페이지를 나타내는 아이콘입니다.
+   */
+  FaPen,
+  /**
+   * 로고 링크입니다
+   */
+  Logo
+  };
 
 export default Icon;
