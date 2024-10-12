@@ -1,12 +1,7 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
-const path = require('path');
-const Dotenv = require('dotenv-webpack');
 
 const deps = require("./package.json").dependencies;
-
-const printCompilationMessage = require('./compilation.config.js');
-
 module.exports = (_, argv) => ({
   output: {
     publicPath: "http://localhost:3000/",
@@ -19,22 +14,6 @@ module.exports = (_, argv) => ({
   devServer: {
     port: 3000,
     historyApiFallback: true,
-    watchFiles: [path.resolve(__dirname, 'src')],
-    onListening: function (devServer) {
-      const port = devServer.server.address().port
-
-      printCompilationMessage('compiling', port)
-
-      devServer.compiler.hooks.done.tap('OutputMessagePlugin', (stats) => {
-        setImmediate(() => {
-          if (stats.hasErrors()) {
-            printCompilationMessage('failure', port)
-          } else {
-            printCompilationMessage('success', port)
-          }
-        })
-      })
-    }
   },
 
   module: {
@@ -64,7 +43,9 @@ module.exports = (_, argv) => ({
     new ModuleFederationPlugin({
       name: "shell",
       filename: "remoteEntry.js",
-      remotes: {},
+      remotes: {
+        posting: "posting@http://localhost:3001/remoteEntry.js",
+      },
       exposes: {},
       shared: {
         ...deps,
@@ -76,11 +57,16 @@ module.exports = (_, argv) => ({
           singleton: true,
           requiredVersion: deps["react-dom"],
         },
+        "@realestate/ui-kit": {
+          singleton: true,
+        },
+        "@realestate/shell-router": {
+          singleton: true,
+        },
       },
     }),
     new HtmlWebPackPlugin({
       template: "./src/index.html",
     }),
-    new Dotenv()
   ],
 });

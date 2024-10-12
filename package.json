@@ -1,5 +1,5 @@
 {
-  "name": "realestate",
+  "name": "@realestate/monorepo",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,11 +8,19 @@
     "build": "turbo build",
     "serve": "turbo build:start"
   },
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
   "keywords": [],
   "author": "",
   "license": "ISC",
   "packageManager": "pnpm@8.10.0+sha1.77d568bacf41eeefd6695a7087c1282433955b5c",
   "devDependencies": {
     "turbo": "^2.1.3"
+  },
+  "dependencies": {
+    "@realestate/ui-kit": "workspace:*"
   }
 }

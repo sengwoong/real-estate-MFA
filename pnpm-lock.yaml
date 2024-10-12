@@ -7,6 +7,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      '@realestate/ui-kit':
+        specifier: workspace:*
+        version: link:packages/ui-kit
     devDependencies:
       turbo:
         specifier: ^2.1.3
